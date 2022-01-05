@@ -6,7 +6,7 @@ data = response.json()
 rates = response.json()[0].get('rates')
 
 def export_items_to_csv():
-    with open('currency.csv', 'w', newline='') as csvfile:
+    with open('currency.csv', 'w', newline='', encoding='utf-8') as csvfile:
         fieldnames = ["currency", "code", "bid", "ask"]
         currency = csv.DictWriter(csvfile, fieldnames=fieldnames, delimiter=';')
         currency.writeheader()
