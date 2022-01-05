@@ -3,7 +3,7 @@ import csv
 
 response = requests.get("http://api.nbp.pl/api/exchangerates/tables/C?format=json")
 data = response.json()
-rates = response.json()[0].get('rates')
+rates = data[0].get('rates')
 
 def export_items_to_csv():
     with open('currency.csv', 'w', newline='', encoding='utf-8') as csvfile:
