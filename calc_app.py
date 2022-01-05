@@ -13,14 +13,6 @@ def export_items_to_csv():
         for rate in rates:
             currency.writerow({"currency": rate["currency"], "code": rate["code"], "bid": rate["bid"], "ask": rate["ask"]})
 
-export_items_to_csv()
+#export_items_to_csv()
 
-"""
-def load_items_from_csv(a='magazyn.csv'):
-    with open(a, newline='') as csvfile:
-        reader = csv.DictReader(csvfile)
-        items.clear()
-        for row in reader:
-            items.append({"name": row["name"], "quantity": row["quantity"], "unit": row["unit"], "unit_price": row["unit_price"]})
-        print("List successfully loaded!")
-"""
+print(rates[0]['code'])
