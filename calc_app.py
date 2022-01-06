@@ -1,5 +1,8 @@
+from flask import Flask, render_template, request
 import requests
 import csv
+
+app = Flask(__name__)
 
 response = requests.get("http://api.nbp.pl/api/exchangerates/tables/C?format=json")
 data = response.json()
@@ -14,3 +17,10 @@ def export_items_to_csv():
             currency.writerow({"currency": rate["currency"], "code": rate["code"], "bid": rate["bid"], "ask": rate["ask"]})
 
 #export_items_to_csv()
+
+@app.route('/')
+def calc():
+    return render_template("currency-calc.html")
+
+if __name__ == "__main__":
+    app.run(debug=True)
