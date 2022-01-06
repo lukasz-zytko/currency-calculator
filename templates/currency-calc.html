@@ -14,13 +14,17 @@
                 Jak to działa?
             </h2>
             <p>Wybierz walutę jaką chcesz zakupić, a następnie podaj jej ilość</p>
+            <ul>
+                {% for rate in rates %}
+                <li>{{rate}}</li>
+                {% endfor %}
+            </ul>
             <form>
                 <label for="cars">Wybierz walutę:</label>
                 <select name="cars" id="cars">
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="mercedes">Mercedes</option>
-                    <option value="audi">Audi</option>
+                    {% for code in codes %}
+                    <option value={{code}}>{{code}}</option>
+                    {% endfor %}
                 </select>
                 <br>
                 <label for="amount">Podaj ilość:</label>
