@@ -29,7 +29,7 @@ def calc():
         currency = data.get("currency")
         amount = int(data.get("amount"))
         exchange_value = amount * 10
-        return render_template("currency-calc.html", codes=codes, exchange_value=exchange_value)
+        return render_template("currency-calc.html", codes=codes, exchange_value=exchange_value, currency=currency)
 
 if __name__ == "__main__":
     app.run(debug=True)

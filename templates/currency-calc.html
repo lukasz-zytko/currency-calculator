@@ -24,14 +24,15 @@
                 <br>
                 <label for="amount">Podaj ilość:</label>
                 <input type="text" id="amount" name="amount" required>
-                <br>
                 <input type="submit" value="Oblicz">
             </form>
                 {% if exchange_value %}
-                <h3>Wybrana ilość waluty ma wartość {{exchange_value}} PLN</h3>
-                <form method='GET' action="/calc/">
-                    <input type="submit" value="Wyczyść">
-                </form>
+                <div>
+                    <p>Wybrana ilość waluty {{currency}} ma wartość {{exchange_value}} PLN</p>
+                    <form method='GET' action="/calc/">
+                        <input type="submit" value="Wyczyść">
+                    </form>
+                </div>
                 {% endif %}
 
         </div>
