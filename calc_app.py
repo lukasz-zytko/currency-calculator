@@ -17,12 +17,19 @@ def export_items_to_csv():
             currency.writerow({"currency": rate["currency"], "code": rate["code"], "bid": rate["bid"], "ask": rate["ask"]})
 #export_items_to_csv()
 
-@app.route('/')
+@app.route('/calc/', methods = ['GET', 'POST'])
 def calc():
     codes = []
     for rate in rates:
         codes.append(rate['code'])
-    return render_template("currency-calc.html", codes=codes)
+    if request.method == 'GET':
+        return render_template("currency-calc.html", codes=codes)
+    if request.method == 'POST':
+        data = request.form
+        currency = data.get("currency")
+        amount = int(data.get("amount"))
+        exchange_value = amount * 10
+        return render_template("currency-calc.html", codes=codes, exchange_value=exchange_value)
 
 if __name__ == "__main__":
     app.run(debug=True)

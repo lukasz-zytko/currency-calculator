@@ -14,24 +14,26 @@
                 Jak to działa?
             </h2>
             <p>Wybierz walutę jaką chcesz zakupić, a następnie podaj jej ilość</p>
-            <ul>
-                {% for rate in rates %}
-                <li>{{rate}}</li>
-                {% endfor %}
-            </ul>
-            <form>
-                <label for="cars">Wybierz walutę:</label>
-                <select name="cars" id="cars">
+            <form method="POST">
+                <label for="currency">Wybierz walutę:</label>
+                <select name="currency" id="currency">
                     {% for code in codes %}
                     <option value={{code}}>{{code}}</option>
                     {% endfor %}
                 </select>
                 <br>
                 <label for="amount">Podaj ilość:</label>
-                <input type="text" id="amount" name="amount">
+                <input type="text" id="amount" name="amount" required>
                 <br>
                 <input type="submit" value="Oblicz">
             </form>
+                {% if exchange_value %}
+                <h3>Wybrana ilość waluty ma wartość {{exchange_value}} PLN</h3>
+                <form method='GET' action="/calc/">
+                    <input type="submit" value="Wyczyść">
+                </form>
+                {% endif %}
+
         </div>
     </body>
 </html>
