@@ -13,4 +13,4 @@ def export_items_to_csv():
         for rate in rates:
             currency.writerow({"currency": rate["currency"], "code": rate["code"], "bid": rate["bid"], "ask": rate["ask"]})
 
-export_items_to_csv()
+#export_items_to_csv()
