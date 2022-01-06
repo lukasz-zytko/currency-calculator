@@ -15,12 +15,14 @@ def export_items_to_csv():
         currency.writeheader()
         for rate in rates:
             currency.writerow({"currency": rate["currency"], "code": rate["code"], "bid": rate["bid"], "ask": rate["ask"]})
-
 #export_items_to_csv()
 
 @app.route('/')
 def calc():
-    return render_template("currency-calc.html")
+    codes = []
+    for rate in rates:
+        codes.append(rate['code'])
+    return render_template("currency-calc.html", codes=codes)
 
 if __name__ == "__main__":
     app.run(debug=True)
