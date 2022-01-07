@@ -28,7 +28,7 @@
             </form>
                 {% if exchange_value %}
                 <div>
-                    <p>Wybrana ilość waluty {{currency}} ma wartość {{exchange_value}} PLN</p>
+                    <p><strong>{{amount}} {{currency}} ({{currency_name}})</strong> to koszt <strong>{{exchange_value}} PLN</strong></p>
                     <form method='GET' action="/calc/">
                         <input type="submit" value="Wyczyść">
                     </form>

@@ -28,8 +28,12 @@ def calc():
         data = request.form
         currency = data.get("currency")
         amount = int(data.get("amount"))
-        exchange_value = amount * 10
-        return render_template("currency-calc.html", codes=codes, exchange_value=exchange_value, currency=currency)
+        for rate in rates:
+            if currency == rate['code']:
+                exchange_price = rate['ask']
+                currency_name = rate['currency']
+        exchange_value = round(amount * exchange_price,2)
+        return render_template("currency-calc.html", codes=codes, exchange_value=exchange_value, currency=currency, amount=amount, currency_name=currency_name)
 
 if __name__ == "__main__":
     app.run(debug=True)
