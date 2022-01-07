@@ -6,33 +6,35 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='style.CSS') }}">
     </head>
     <body>
-        <div>
+        <div class="box">
             <h1>
                 Kalkulator walut
             </h1>
-            <h2>
-                Jak to działa?
-            </h2>
-            <p>Wybierz walutę jaką chcesz zakupić, a następnie podaj jej ilość</p>
+            <div id="description">
+            <p><strong>Jak to działa:</strong> chcesz sprawdzić koszt zakupu waluty? Wybierz walutę jaką chcesz zakupić oraz podaj jej ilość</p>
+            </div>
+            <div class="form">
             <form method="POST">
-                <label for="currency">Wybierz walutę:</label>
+                <label for="currency"><span>Wybierz walutę:</span>
                 <select name="currency" id="currency">
                     {% for code in codes %}
                     <option value={{code}}>{{code}}</option>
                     {% endfor %}
                 </select>
-                <br>
-                <label for="amount">Podaj ilość:</label>
+                </label>
+                <label for="amount"><span>Podaj ilość:</span>
                 <input type="text" id="amount" name="amount" required>
-                <input type="submit" value="Oblicz">
+                </label>
+                <input id="button" type="submit" value="Oblicz">
+            </div>
             </form>
                 {% if exchange_value %}
-                <div>
+                <div id="result">
                     <p><strong>{{amount}} {{currency}} ({{currency_name}})</strong> to koszt <strong>{{exchange_value}} PLN</strong></p>
-                    <form method='GET' action="/calc/">
-                        <input type="submit" value="Wyczyść">
-                    </form>
                 </div>
+                    <form method='GET' action="/calc/">
+                        <input id="clear" type="submit" value="Wyczyść">
+                    </form>
                 {% endif %}
 
         </div>
