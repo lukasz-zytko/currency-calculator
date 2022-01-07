@@ -1,0 +1,71 @@
+@import url(https://fonts.googleapis.com/css?family=Lato);
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,800,900);
+
+body {
+    font-family: 'Lato';
+    background: url(/static/dolar.jpg) no-repeat;
+}
+div.box {
+    align-items: center;
+    max-width: 600px;
+    width: 80%;
+    color: white;
+    background-color: rgba(39, 155, 209, 0.9);
+    padding: 50px;
+    border-radius: 10px;
+    margin: auto;
+}
+h1 {
+    font-size: 56px;
+    text-align: center;
+}
+span {
+    font-size: 18px;
+    text-decoration: wavy;
+}
+div#description {
+    background-color: rgba(39, 209, 181, 0.9);
+    border-radius: 10px;
+    width: 90%;
+    padding: 5px 0 5px 20px ;
+    margin: 20px
+}
+div#result {
+    background-color: rgba(10, 70, 161, 0.9);
+    border-radius: 10px;
+    width: 90%;
+    padding: 20px;
+    font-size: 22px;
+    text-align: center;
+    margin: 10px;
+}
+label {
+    font-size: 28px;
+    padding: 5px 20px 0 0 ;
+    margin-top: 10px;
+    border: 1px;
+}
+input, select {
+    font-size: 20px;
+    border-radius: 5px;   
+}
+input#button {
+    font-size: 22px;
+    background: rgba(10, 70, 161);
+    padding: 10px 25px 10px 25px;
+    color: white;
+}
+input#clear {
+    font-size: 16px;
+    background: rgba(39, 209, 181, 0.9);
+    float: right;
+    padding: 2px 5px 2px 5px;
+}
+input#amount {
+    width: 70px;
+}
+div.form {
+    padding: 10px;
+    width: 90%;
+    margin: 10px;
+}
